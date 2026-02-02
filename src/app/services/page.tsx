@@ -1,110 +1,182 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+
+/* =============================================================================
+   SERVICES DATA - Hardcoded for reliability with correct image paths
+   ============================================================================= */
 
 const services = [
   {
-    id: 'electrical',
-    title: 'Electrical Distribution & Smart Metering',
-    headline: 'Powering the Grid of Tomorrow.',
-    subheadline: 'End-to-end electrical transmission and smart metering solutions.',
-    intro: 'We bridge the gap between power generation and consumption. UDS specializes in high-voltage transmission networks, substation commissioning, and the deployment of AMI (Advanced Metering Infrastructure) for smart cities.',
-    image: '/images/services/electrical-transmission.jpg',
-    color: 'from-yellow-500 to-amber-600',
-    capabilities: [
-      'HT/LT overhead cable laying and tower erection',
-      'IoT-enabled smart metering systems',
-      'Substation commissioning',
-      '24/7 grid maintenance',
-    ],
-    featured: true,
-    isNew: true,
-  },
-  {
-    id: 'civil-construction',
+    id: 'civil',
     title: 'Civil Infrastructure',
-    headline: 'Heavy Civil Engineering.',
-    subheadline: "The backbone of India's urban development.",
-    intro: "From arterial roads to deep-foundation commercial towers, we bring the Ultimate Group's heavy machinery fleet to execute complex structural projects with speed and precision.",
-    image: '/images/services/infrastructure.jpg',
-    color: 'from-slate-600 to-slate-800',
-    capabilities: [
-      'High-grade structural concrete for bridges and foundations',
-      'Asphalt and concrete paving for state highways',
-      'Factory flooring and PEB bases',
-      'Land grading and drainage infrastructure',
-    ],
+    description: 'Heavy structural foundations, bridges, and highways. We build the backbone of Bengal.',
+    image: '/images/services/civil-construction.webp',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
+    gradient: 'from-slate-600 to-slate-800',
   },
   {
     id: 'bms',
     title: 'Building Management Systems',
-    headline: 'Intelligent Building Management.',
-    subheadline: 'Transforming static structures into efficient environments.',
-    intro: 'UDS Infrastructure delivers state-of-the-art BMS solutions. We integrate HVAC, Lighting, and Security into a single, cohesive interface, reducing operational costs by up to 30%.',
+    description: 'Integrated building intelligence. HVAC, Lighting, and Safety unified in one dashboard.',
     image: '/images/services/bms.webp',
-    color: 'from-cyan-500 to-blue-600',
-    capabilities: [
-      'Smart HVAC automation',
-      'Integrated security monitoring',
-      'Real-time energy analytics',
-      'Automated lighting control',
-    ],
-    featured: true,
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+    gradient: 'from-cyan-500 to-blue-600',
   },
   {
-    id: 'fire-safety',
-    title: 'Fire Protection Engineering',
-    headline: 'Advanced Life Safety & Suppression.',
-    subheadline: 'NBC-compliant fire grids for high-rise and industrial zones.',
-    intro: 'Safety is not an option; it is an engineered guarantee. We design hydraulic fire suppression systems that integrate seamlessly with building aesthetics while ensuring maximum rapid response coverage.',
-    image: '/images/services/fire-safety.jpg',
-    color: 'from-red-500 to-red-700',
-    capabilities: [
-      'High-pressure wet riser hydrant systems',
-      'Heat-sensitive automated sprinklers',
-      'Intelligent smoke and heat detection',
-      'Full Fire Services compliance',
-    ],
+    id: 'electrical',
+    title: 'Electrical T&D',
+    description: 'High-voltage transmission, substations, and smart metering networks.',
+    image: '/images/services/electrical-transmission.png',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    gradient: 'from-yellow-500 to-amber-600',
+    isNew: true,
+  },
+  {
+    id: 'fire',
+    title: 'Fire Protection',
+    description: 'NBC-compliant hydrant and sprinkler systems for maximum life safety.',
+    image: '/images/services/fire-safety-premium.png',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+      </svg>
+    ),
+    gradient: 'from-red-500 to-red-700',
   },
   {
     id: 'cctv',
-    title: 'CCTV & Intelligent Surveillance',
-    headline: 'AI-Driven Perimeter Security.',
-    subheadline: 'Beyond recording—intelligent monitoring for critical assets.',
-    intro: 'Modern security requires active intelligence. Our IP-based surveillance networks use edge computing to detect intrusions, recognize license plates, and alert command centers in real-time.',
-    image: '/images/services/cctv.jpg',
-    color: 'from-violet-500 to-purple-700',
-    capabilities: [
-      '4K low-light and thermal imaging cameras',
-      'Automated intrusion detection analytics',
-      'Cloud and NVR storage redundancy',
-      'Centralized remote command access',
-    ],
+    title: 'CCTV Surveillance',
+    description: 'AI-powered perimeter monitoring and IP camera networks.',
+    image: '/images/services/cctv-premium.png',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>
+    ),
+    gradient: 'from-violet-500 to-purple-700',
   },
   {
-    id: 'access-control',
-    title: 'Access Control Systems',
-    headline: 'Secure Entry Management.',
-    subheadline: 'Biometric and RFID solutions for restricted zones.',
-    intro: 'Control who enters your facilities with precision. Our access control systems combine biometric authentication, RFID technology, and real-time monitoring for comprehensive security management.',
-    image: '/images/services/access-control.jpg',
-    color: 'from-emerald-500 to-teal-600',
-    capabilities: [
-      'Biometric fingerprint and facial recognition',
-      'RFID card and mobile access',
-      'Visitor management systems',
-      'Integration with BMS and CCTV',
-    ],
+    id: 'access',
+    title: 'Access Control',
+    description: 'Biometric and RFID secure entry logic for restricted zones.',
+    image: '/images/services/access-control-premium.png',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+      </svg>
+    ),
+    gradient: 'from-emerald-500 to-teal-600',
   },
 ];
+
+/* =============================================================================
+   SERVICE CARD COMPONENT - Engineering Precision Design
+   ============================================================================= */
+
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      <Link
+        href="/contact"
+        className="group block bg-white rounded-2xl overflow-hidden border-l-4 border-blue-900 shadow-lg hover:shadow-2xl transition-all duration-300 h-full transform hover:-translate-y-1"
+      >
+        {/* Image Container */}
+        <div className="relative h-52 overflow-hidden">
+          {/* Gradient Fallback - Always visible as base layer */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient}`} />
+
+          {/* Actual Image with Next.js Image component */}
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={index < 3}
+          />
+
+          {/* Dark Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+          {/* Icon Badge */}
+          <div className="absolute top-4 left-4 w-14 h-14 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center text-primary-800 group-hover:scale-110 group-hover:bg-secondary-500 group-hover:text-white transition-all duration-300">
+            {service.icon}
+          </div>
+
+          {/* New Badge */}
+          {service.isNew && (
+            <span className="absolute top-4 right-4 px-3 py-1 bg-secondary-500 text-white text-xs font-bold rounded-full uppercase tracking-wide shadow-lg animate-pulse">
+              New
+            </span>
+          )}
+
+          {/* Title on Image */}
+          <div className="absolute bottom-4 left-4 right-4">
+            <h3 className="font-display text-xl font-bold text-white drop-shadow-lg">
+              {service.title}
+            </h3>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6">
+          <p className="text-neutral-600 text-sm leading-relaxed mb-6">
+            {service.description}
+          </p>
+
+          {/* CTA */}
+          <div className="flex items-center justify-between">
+            <span className="inline-flex items-center gap-2 text-sm font-bold text-blue-900 group-hover:text-secondary-600 transition-colors uppercase tracking-wide">
+              Get Quote
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+
+            <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} shadow-md`} />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+/* =============================================================================
+   MAIN PAGE COMPONENT
+   ============================================================================= */
 
 export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 overflow-hidden">
+        {/* Grid Pattern */}
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -116,6 +188,10 @@ export default function ServicesPage() {
           }}
         />
 
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-10 w-64 h-64 border border-cyan-500/10 rounded-full" />
+        <div className="absolute bottom-10 left-10 w-48 h-48 border border-secondary-500/10 rotate-45" />
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -123,11 +199,11 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-1.5 bg-secondary-500/20 text-secondary-400 text-sm font-semibold rounded-full mb-6 uppercase tracking-wider">
-              What We Do
+              Our Expertise
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
               Engineering
-              <span className="text-secondary-500"> Excellence</span>
+              <span className="text-secondary-500"> Solutions</span>
             </h1>
             <p className="max-w-3xl mx-auto text-xl text-primary-200 leading-relaxed">
               From heavy civil infrastructure to intelligent building systems—integrated
@@ -138,109 +214,49 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-primary-900 mb-4">
+              What We <span className="text-secondary-500">Build</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-neutral-600">
+              Click any service card to request a custom quote for your project.
+            </p>
+          </motion.div>
+
+          {/* Grid - 1 col mobile, 2 col tablet, 3 col desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6 }}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? '' : ''
-                }`}
-              >
-                {/* Image */}
-                <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/30 to-transparent`} />
-                    {service.isNew && (
-                      <span className="absolute top-4 left-4 px-3 py-1 bg-secondary-500 text-white text-xs font-bold rounded-full uppercase">
-                        New Service
-                      </span>
-                    )}
-                    {service.featured && !service.isNew && (
-                      <span className="absolute top-4 left-4 px-3 py-1 bg-primary-800 text-white text-xs font-bold rounded-full uppercase">
-                        Featured
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div className={`inline-block px-3 py-1 bg-gradient-to-r ${service.color} text-white text-xs font-semibold rounded-full mb-4 uppercase tracking-wider`}>
-                    {service.id.replace('-', ' ')}
-                  </div>
-                  <h2 className="font-display text-3xl lg:text-4xl font-bold text-primary-800 mb-3">
-                    {service.headline}
-                  </h2>
-                  <p className="text-lg text-secondary-600 font-medium mb-4">
-                    {service.subheadline}
-                  </p>
-                  <p className="text-neutral-600 leading-relaxed mb-6">
-                    {service.intro}
-                  </p>
-
-                  {/* Capabilities */}
-                  <div className="mb-8">
-                    <h4 className="text-sm font-semibold text-primary-800 uppercase tracking-wider mb-4">
-                      Key Capabilities
-                    </h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {service.capabilities.map((cap) => (
-                        <li key={cap} className="flex items-start gap-2">
-                          <svg
-                            className="w-5 h-5 text-secondary-500 flex-shrink-0 mt-0.5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          <span className="text-sm text-neutral-700">{cap}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Link
-                    href={`/services/${service.id}`}
-                    className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${service.color} text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group`}
-                  >
-                    Explore {service.title.split(' ')[0]}
-                    <svg
-                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.div>
+              <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-primary-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px',
+            }}
+          />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -255,7 +271,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-500 hover:bg-secondary-600 text-white font-bold text-lg rounded-xl shadow-2xl shadow-secondary-500/30 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-500 hover:bg-secondary-600 text-white font-bold text-lg rounded-xl shadow-2xl shadow-secondary-500/30 transition-all duration-300 hover:-translate-y-1"
             >
               Start Your Project
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

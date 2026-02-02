@@ -6,24 +6,17 @@ import { motion } from 'framer-motion';
 
 const footerLinks = {
   services: [
-    { label: 'Civil Infrastructure', href: '/services/civil-construction' },
-    { label: 'Building Management Systems', href: '/services/bms' },
-    { label: 'MEP Solutions', href: '/services/fire-safety' },
-    { label: 'CCTV & Surveillance', href: '/services/cctv' },
-    { label: 'Consulting', href: '/contact' },
+    { label: 'Civil Infrastructure', href: '/services' },
+    { label: 'Building Management Systems', href: '/services' },
+    { label: 'Electrical T&D', href: '/services' },
+    { label: 'Fire Protection', href: '/services' },
+    { label: 'CCTV & Security', href: '/services' },
+    { label: 'Access Control', href: '/services' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
-    { label: 'Our Projects', href: '/projects' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'News & Insights', href: '/news' },
-    { label: 'Sustainability', href: '/sustainability' },
-  ],
-  resources: [
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Technical Papers', href: '/resources/papers' },
-    { label: 'FAQs', href: '/faqs' },
-    { label: 'Support', href: '/support' },
+    { label: 'Services', href: '/services' },
+    { label: 'Contact Us', href: '/contact' },
   ],
 };
 
@@ -168,8 +161,8 @@ export default function Footer() {
               Services
             </h3>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
+              {footerLinks.services.map((link, index) => (
+                <li key={`service-${index}`}>
                   <Link
                     href={link.href}
                     className="text-neutral-400 hover:text-secondary-500 transition-colors text-sm inline-flex items-center gap-2 group"
@@ -202,39 +195,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources & Certifications */}
+          {/* Certifications */}
           <div>
             <h3 className="font-display font-semibold text-lg text-white mb-6 uppercase tracking-wider">
-              Resources
-            </h3>
-            <ul className="space-y-3 mb-8">
-              {footerLinks.resources.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-neutral-400 hover:text-secondary-500 transition-colors text-sm inline-flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 bg-primary-700 rounded-full group-hover:bg-secondary-500 transition-colors"></span>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Certifications */}
-            <h4 className="font-semibold text-sm text-white mb-3 uppercase tracking-wider">
               Certifications
-            </h4>
-            <div className="flex flex-wrap gap-2">
+            </h3>
+            <div className="flex flex-wrap gap-2 mb-8">
               {certifications.map((cert) => (
                 <span
                   key={cert}
-                  className="px-2 py-1 bg-primary-900 text-primary-300 text-xs rounded font-medium"
+                  className="px-3 py-1.5 bg-primary-900 text-primary-300 text-xs rounded-lg font-medium"
                 >
                   {cert}
                 </span>
               ))}
             </div>
+
+            {/* Quick Contact */}
+            <h4 className="font-semibold text-sm text-white mb-3 uppercase tracking-wider">
+              Quick Contact
+            </h4>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-secondary-500 hover:bg-secondary-600 text-white text-sm font-semibold rounded-lg transition-colors"
+            >
+              Get a Quote
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>
