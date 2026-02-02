@@ -201,6 +201,60 @@ export default function ServiceDetailPage() {
                 </div>
               </motion.div>
 
+              {/* Sub-Services Section */}
+              {service.subServices && service.subServices.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="mt-12"
+                >
+                  <h3 className="font-display text-2xl font-bold text-primary-900 mb-8">
+                    Our Specialized Solutions
+                  </h3>
+                  <div className="grid grid-cols-1 gap-6">
+                    {service.subServices.map((subService, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100"
+                      >
+                        <div className="flex flex-col sm:flex-row">
+                          {/* Image */}
+                          <div className="relative w-full sm:w-2/5 aspect-[16/10] sm:aspect-auto sm:min-h-[200px] overflow-hidden">
+                            <Image
+                              src={subService.image}
+                              alt={subService.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 640px) 100vw, 40vw"
+                            />
+                            <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 p-6 sm:p-8 flex flex-col justify-center">
+                            <div className="flex items-center gap-3 mb-3">
+                              <div className={`w-2 h-8 rounded-full bg-gradient-to-b ${service.gradient}`} />
+                              <h4 className="font-display text-xl font-bold text-primary-900 group-hover:text-secondary-600 transition-colors">
+                                {subService.title}
+                              </h4>
+                            </div>
+                            <p className="text-neutral-600 leading-relaxed pl-5">
+                              {subService.description}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               {/* CTA Section */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

@@ -1,3 +1,9 @@
+export interface SubService {
+  title: string;
+  description: string;
+  image: string;
+}
+
 export interface ServiceItem {
   id: string;
   slug: string;
@@ -10,6 +16,7 @@ export interface ServiceItem {
   features: string[];
   gradient: string;
   isNew?: boolean;
+  subServices: SubService[];
 }
 
 export const servicesData: ServiceItem[] = [
@@ -32,7 +39,24 @@ export const servicesData: ServiceItem[] = [
       "Energy Monitoring & Analytics Dashboards",
       "Third-party Integration (Modbus/BACnet/LonWorks)"
     ],
-    gradient: "from-cyan-500 to-blue-600"
+    gradient: "from-cyan-500 to-blue-600",
+    subServices: [
+      {
+        title: "HVAC Optimization",
+        description: "Advanced chiller plant management and air handling unit control for optimal climate comfort with 30% energy savings.",
+        image: "/images/services/subservices/bms-hvac.jpg"
+      },
+      {
+        title: "Intelligent Lighting",
+        description: "DALI and 0-10V dimming protocols with occupancy sensors for automated, energy-efficient illumination.",
+        image: "/images/services/subservices/bms-lighting.jpg"
+      },
+      {
+        title: "Energy Analytics",
+        description: "Real-time dashboards tracking consumption patterns, peak demand, and cost optimization opportunities.",
+        image: "/images/services/subservices/bms-energy.jpg"
+      }
+    ]
   },
   {
     id: "02",
@@ -53,7 +77,24 @@ export const servicesData: ServiceItem[] = [
       "Reinforced Cement Concrete (RCC) Structures",
       "Industrial Flooring & Warehousing Shells"
     ],
-    gradient: "from-slate-600 to-slate-800"
+    gradient: "from-slate-600 to-slate-800",
+    subServices: [
+      {
+        title: "Highway Construction",
+        description: "Multi-lane highways and road networks with modern asphalt technology and drainage systems.",
+        image: "/images/services/subservices/civil-highway.jpg"
+      },
+      {
+        title: "Deep Foundation Piling",
+        description: "Bored piling, driven piles, and soil stabilization for challenging Bengal terrain conditions.",
+        image: "/images/services/subservices/civil-piling.jpg"
+      },
+      {
+        title: "RCC Structures",
+        description: "Reinforced concrete frameworks for commercial buildings, IT parks, and industrial facilities.",
+        image: "/images/services/subservices/civil-rcc.jpg"
+      }
+    ]
   },
   {
     id: "03",
@@ -75,7 +116,24 @@ export const servicesData: ServiceItem[] = [
       "Transformer & Switchgear Setup"
     ],
     gradient: "from-yellow-500 to-amber-600",
-    isNew: true
+    isNew: true,
+    subServices: [
+      {
+        title: "HT/LT Transmission Lines",
+        description: "High-tension and low-tension overhead line installation with certified safety protocols.",
+        image: "/images/services/subservices/electrical-htlines.jpg"
+      },
+      {
+        title: "Substation Engineering",
+        description: "Complete substation design, transformer setup, and switchgear commissioning services.",
+        image: "/images/services/subservices/electrical-substation.jpg"
+      },
+      {
+        title: "Smart Metering (AMI)",
+        description: "IoT-enabled Advanced Metering Infrastructure for real-time consumption tracking and AT&C loss reduction.",
+        image: "/images/services/subservices/electrical-smartmeter.jpg"
+      }
+    ]
   },
   {
     id: "04",
@@ -96,7 +154,24 @@ export const servicesData: ServiceItem[] = [
       "Fire Pump Room Engineering",
       "Addressable Fire Alarm Systems (FAS)"
     ],
-    gradient: "from-red-500 to-red-700"
+    gradient: "from-red-500 to-red-700",
+    subServices: [
+      {
+        title: "Hydrant Systems",
+        description: "NBC-compliant wet risers, downcomers, and fire hydrant networks for high-rise buildings.",
+        image: "/images/services/subservices/fire-hydrant.jpg"
+      },
+      {
+        title: "Sprinkler Networks",
+        description: "Automated sprinkler systems with pressure-activated pumps for immediate fire suppression.",
+        image: "/images/services/subservices/fire-sprinkler.jpg"
+      },
+      {
+        title: "Fire Alarm Systems",
+        description: "Addressable detection systems with smoke sensors and thermal anomaly detection.",
+        image: "/images/services/subservices/fire-alarm.jpg"
+      }
+    ]
   },
   {
     id: "05",
@@ -117,7 +192,24 @@ export const servicesData: ServiceItem[] = [
       "Command Center Video Walls",
       "Cloud & Local NVR Storage"
     ],
-    gradient: "from-violet-500 to-purple-700"
+    gradient: "from-violet-500 to-purple-700",
+    subServices: [
+      {
+        title: "IP Camera Networks",
+        description: "4K resolution cameras with night vision, PTZ capabilities, and weatherproof housing.",
+        image: "/images/services/subservices/cctv-cameras.jpg"
+      },
+      {
+        title: "Video Analytics",
+        description: "AI-powered threat detection with line crossing, loitering alerts, and ANPR capabilities.",
+        image: "/images/services/subservices/cctv-analytics.jpg"
+      },
+      {
+        title: "Command Centers",
+        description: "Video wall installations with NVR redundancy for 24/7 monitoring and zero downtime.",
+        image: "/images/services/subservices/cctv-command.jpg"
+      }
+    ]
   },
   {
     id: "06",
@@ -138,7 +230,24 @@ export const servicesData: ServiceItem[] = [
       "Flap Barriers & Turnstiles",
       "Visitor Management Systems (VMS)"
     ],
-    gradient: "from-emerald-500 to-teal-600"
+    gradient: "from-emerald-500 to-teal-600",
+    subServices: [
+      {
+        title: "Biometric Systems",
+        description: "Fingerprint and retina scanners with multi-factor authentication for high-security zones.",
+        image: "/images/services/subservices/access-biometric.jpg"
+      },
+      {
+        title: "RFID Integration",
+        description: "Proximity card readers and NFC systems integrated with HRMS for attendance tracking.",
+        image: "/images/services/subservices/access-rfid.jpg"
+      },
+      {
+        title: "Barriers & Turnstiles",
+        description: "Flap barriers, tripod turnstiles, and boom gates for high-footfall entry management.",
+        image: "/images/services/subservices/access-turnstiles.jpg"
+      }
+    ]
   }
 ];
 
