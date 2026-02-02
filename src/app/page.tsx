@@ -121,7 +121,7 @@ const servicesData = [
     id: 'electrical',
     title: 'Electrical & Smart Metering',
     description: 'High-voltage transmission networks and IoT-enabled smart metering for modern grids.',
-    imagePath: '/images/services/electrical-transmission.png',
+    imagePath: '/images/services/electrical-transmission.jpg',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -134,7 +134,7 @@ const servicesData = [
     id: 'civil-construction',
     title: 'Civil Infrastructure',
     description: 'Heavy civil engineering—bridges, foundations, and road networks built to last.',
-    imagePath: '/images/services/infrastructure-premium.png',
+    imagePath: '/images/services/infrastructure.jpg',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -158,7 +158,7 @@ const servicesData = [
     id: 'fire-safety',
     title: 'Fire Protection Engineering',
     description: 'NBC-compliant fire grids with hydraulic suppression for high-rise and industrial zones.',
-    imagePath: '/images/services/fire-safety-premium.png',
+    imagePath: '/images/services/fire-safety.jpg',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
@@ -171,7 +171,7 @@ const servicesData = [
     id: 'cctv',
     title: 'CCTV & Intelligent Surveillance',
     description: 'AI-driven IP surveillance with thermal imaging and real-time intrusion detection.',
-    imagePath: '/images/services/cctv-premium.png',
+    imagePath: '/images/services/cctv.jpg',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -183,7 +183,7 @@ const servicesData = [
     id: 'access-control',
     title: 'Access Control Systems',
     description: 'Biometric and RFID secure entry with visitor management and BMS integration.',
-    imagePath: '/images/services/access-control-premium.png',
+    imagePath: '/images/services/access-control.jpg',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />

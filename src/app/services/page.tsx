@@ -11,7 +11,7 @@ const services = [
     headline: 'Powering the Grid of Tomorrow.',
     subheadline: 'End-to-end electrical transmission and smart metering solutions.',
     intro: 'We bridge the gap between power generation and consumption. UDS specializes in high-voltage transmission networks, substation commissioning, and the deployment of AMI (Advanced Metering Infrastructure) for smart cities.',
-    image: '/images/services/electrical-transmission.png',
+    image: '/images/services/electrical-transmission.jpg',
     color: 'from-yellow-500 to-amber-600',
     capabilities: [
       'HT/LT overhead cable laying and tower erection',
@@ -28,7 +28,7 @@ const services = [
     headline: 'Heavy Civil Engineering.',
     subheadline: "The backbone of India's urban development.",
     intro: "From arterial roads to deep-foundation commercial towers, we bring the Ultimate Group's heavy machinery fleet to execute complex structural projects with speed and precision.",
-    image: '/images/services/infrastructure-premium.png',
+    image: '/images/services/infrastructure.jpg',
     color: 'from-slate-600 to-slate-800',
     capabilities: [
       'High-grade structural concrete for bridges and foundations',
@@ -59,7 +59,7 @@ const services = [
     headline: 'Advanced Life Safety & Suppression.',
     subheadline: 'NBC-compliant fire grids for high-rise and industrial zones.',
     intro: 'Safety is not an option; it is an engineered guarantee. We design hydraulic fire suppression systems that integrate seamlessly with building aesthetics while ensuring maximum rapid response coverage.',
-    image: '/images/services/fire-safety-premium.png',
+    image: '/images/services/fire-safety.jpg',
     color: 'from-red-500 to-red-700',
     capabilities: [
       'High-pressure wet riser hydrant systems',
@@ -74,7 +74,7 @@ const services = [
     headline: 'AI-Driven Perimeter Security.',
     subheadline: 'Beyond recording—intelligent monitoring for critical assets.',
     intro: 'Modern security requires active intelligence. Our IP-based surveillance networks use edge computing to detect intrusions, recognize license plates, and alert command centers in real-time.',
-    image: '/images/services/cctv-premium.png',
+    image: '/images/services/cctv.jpg',
     color: 'from-violet-500 to-purple-700',
     capabilities: [
       '4K low-light and thermal imaging cameras',
@@ -89,7 +89,7 @@ const services = [
     headline: 'Secure Entry Management.',
     subheadline: 'Biometric and RFID solutions for restricted zones.',
     intro: 'Control who enters your facilities with precision. Our access control systems combine biometric authentication, RFID technology, and real-time monitoring for comprehensive security management.',
-    image: '/images/services/access-control-premium.png',
+    image: '/images/services/access-control.jpg',
     color: 'from-emerald-500 to-teal-600',
     capabilities: [
       'Biometric fingerprint and facial recognition',
