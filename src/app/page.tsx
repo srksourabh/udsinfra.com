@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 
@@ -132,7 +133,7 @@ const servicesData = [
     id: 'civil-construction',
     title: 'Civil Construction',
     description: 'High-grade structural concrete and steel framework execution for commercial towers.',
-    imagePath: '/images/services/civil-construction.jpg',
+    imagePath: '/images/services/civil-construction.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -155,7 +156,7 @@ const servicesData = [
     id: 'infrastructure',
     title: 'Infrastructure',
     description: "Arterial road networks, bridges, and public utility grids driving Bengal's connectivity.",
-    imagePath: '/images/services/infrastructure.jpg',
+    imagePath: '/images/services/infrastructure.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -178,7 +179,7 @@ const servicesData = [
     id: 'bms',
     title: 'Building Management Systems',
     description: 'Centralized command centers monitoring HVAC, lighting, and energy efficiency.',
-    imagePath: '/images/services/bms.jpg',
+    imagePath: '/images/services/bms.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -201,7 +202,7 @@ const servicesData = [
     id: 'fire-safety',
     title: 'Fire Safety & Suppression',
     description: 'Intelligent fire detection and automated suppression manifolds (hydrants & sprinklers).',
-    imagePath: '/images/services/fire-safety.jpg',
+    imagePath: '/images/services/fire-safety.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
@@ -225,7 +226,7 @@ const servicesData = [
     id: 'cctv',
     title: 'CCTV & Surveillance',
     description: 'IP-based high-definition monitoring with AI-driven analytics for perimeter security.',
-    imagePath: '/images/services/cctv.jpg',
+    imagePath: '/images/services/cctv.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -248,7 +249,7 @@ const servicesData = [
     id: 'access-control',
     title: 'Access Control',
     description: 'Biometric integration and RFID secure entry points for restricted zones.',
-    imagePath: '/images/services/access-control.jpg',
+    imagePath: '/images/services/access-control.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
@@ -589,28 +590,18 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                {/* Image Placeholder */}
+                {/* Service Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  {/* Gradient Background (placeholder for actual image) */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color}`}>
-                    {/* Grid pattern overlay */}
-                    <div
-                      className="absolute inset-0 opacity-10"
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
-                        `,
-                        backgroundSize: '20px 20px',
-                      }}
-                    />
-                    {/* Decorative elements */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 border-2 border-white/20 rounded-full flex items-center justify-center">
-                        <div className="text-white/40">{service.icon}</div>
-                      </div>
-                    </div>
-                  </div>
+                  <Image
+                    src={service.imagePath}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+
+                  {/* Gradient overlay for better text contrast */}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent`} />
 
                   {/* Icon Badge */}
                   <div className="absolute top-4 left-4 w-12 h-12 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center text-primary-800">
