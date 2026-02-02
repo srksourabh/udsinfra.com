@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 
 const footerLinks = {
   services: [
-    { label: 'Civil Infrastructure', href: '/services/civil-infrastructure' },
+    { label: 'Civil Infrastructure', href: '/services/civil-construction' },
     { label: 'Building Management Systems', href: '/services/bms' },
-    { label: 'MEP Solutions', href: '/services/mep' },
-    { label: 'Project Management', href: '/services/project-management' },
-    { label: 'Consulting', href: '/services/consulting' },
+    { label: 'MEP Solutions', href: '/services/fire-safety' },
+    { label: 'CCTV & Surveillance', href: '/services/cctv' },
+    { label: 'Consulting', href: '/contact' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
@@ -100,9 +100,14 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="text-secondary-400 font-semibold text-sm mb-3 uppercase tracking-wider">
-              A unit of Ultimate Group
-            </p>
+            <a
+              href="https://www.ultimatesolutions.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-secondary-400 hover:text-secondary-300 font-semibold text-sm mb-3 uppercase tracking-wider transition-colors"
+            >
+              A unit of Ultimate Group &rarr;
+            </a>
             <p className="text-neutral-300 mb-6 leading-relaxed max-w-md">
               Backed by 16+ years of Ultimate Group stability, UDS Infrastructure
               brings fresh energy to civil infrastructure, building management
@@ -242,7 +247,16 @@ export default function Footer() {
             <div className="text-neutral-400 text-sm text-center md:text-left">
               <p>
                 &copy; {currentYear} UDS Infrastructure Private Limited.
-                A unit of Ultimate Group. All rights reserved.
+                A unit of{' '}
+                <a
+                  href="https://www.ultimatesolutions.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary-400 hover:text-secondary-300 transition-colors"
+                >
+                  Ultimate Group
+                </a>
+                . All rights reserved.
               </p>
             </div>
 

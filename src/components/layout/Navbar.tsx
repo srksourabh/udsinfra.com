@@ -51,9 +51,15 @@ export default function Navbar() {
               <h1 className="font-display font-bold text-xl text-primary-800 leading-tight">
                 UDS INFRASTRUCTURE
               </h1>
-              <p className="text-xs text-secondary-500 tracking-wider uppercase font-semibold">
+              <a
+                href="https://www.ultimatesolutions.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-xs text-secondary-500 hover:text-secondary-600 tracking-wider uppercase font-semibold transition-colors"
+              >
                 A unit of Ultimate Group
-              </p>
+              </a>
             </div>
           </Link>
 
