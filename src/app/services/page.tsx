@@ -296,7 +296,7 @@ export default function ServicesPage() {
 
             {/* Trust Indicators */}
             <div className="mt-12 pt-8 border-t border-white/10">
-              <p className="text-primary-300 text-sm mb-4">Trusted by organizations across West Bengal</p>
+              <p className="text-primary-300 text-sm mb-4">Trusted by organizations across India</p>
               <div className="flex flex-wrap justify-center gap-6 text-primary-400 text-sm">
                 <span>Government Projects</span>
                 <span className="text-primary-600">|</span>

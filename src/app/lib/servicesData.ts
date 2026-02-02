@@ -63,12 +63,12 @@ export const servicesData: ServiceItem[] = [
     slug: "civil-infrastructure",
     title: "Civil Infrastructure",
     icon: "HardHat",
-    shortDesc: "Heavy structural foundations, bridges, and highways. We build the backbone of Bengal.",
+    shortDesc: "Heavy structural foundations, bridges, and highways. We build the backbone of India.",
     mainImage: "/images/services/civil-construction.webp",
     detailTitle: "Heavy Civil Engineering & Structural Integrity",
     detailContent: [
       "As a new arm of the 16-year-old Ultimate Group, UDS Infrastructure inherits a legacy of robust execution. Our Civil division focuses on the heavy-lifting required for nation-building: highways, bridges, and deep-foundation industrial structures.",
-      "We deploy a modern fleet of excavators, graders, and batching plants to ensure rapid project turnaround. Our expertise lies in navigating the complex soil conditions of West Bengal, utilizing advanced piling and soil stabilization techniques.",
+      "We deploy a modern fleet of excavators, graders, and batching plants to ensure rapid project turnaround. Our expertise lies in navigating complex soil conditions across India, utilizing advanced piling and soil stabilization techniques.",
       "Whether it is a multi-lane state highway or the reinforced concrete (RCC) framework for a Grade-A IT Park, we prioritize safety, material quality, and architectural fidelity."
     ],
     features: [
@@ -86,7 +86,7 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Deep Foundation Piling",
-        description: "Bored piling, driven piles, and soil stabilization for challenging Bengal terrain conditions.",
+        description: "Bored piling, driven piles, and soil stabilization for challenging terrain conditions across India.",
         image: "/images/services/subservices/civil-piling.jpg"
       },
       {
@@ -144,7 +144,7 @@ export const servicesData: ServiceItem[] = [
     mainImage: "/images/services/fire-safety-premium.png",
     detailTitle: "Advanced Fire Suppression Engineering",
     detailContent: [
-      "Fire safety is an engineered guarantee, not an afterthought. UDS designs compliant hydraulic networks that meet strict National Building Code (NBC) and West Bengal Fire Services standards.",
+      "Fire safety is an engineered guarantee, not an afterthought. UDS designs compliant hydraulic networks that meet strict National Building Code (NBC) and State Fire Services standards.",
       "We install comprehensive protection grids including wet risers, downcomers, and automated sprinkler systems. Our logic-driven approach ensures that pumps activate instantly upon pressure drops, providing immediate suppression capability.",
       "We also integrate passive firestops and intelligent detection systems that pinpoint thermal anomalies before they become infernos, protecting both human life and high-value assets."
     ],
