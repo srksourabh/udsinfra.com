@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     template: '%s | UDS Infrastructure',
   },
   description:
-    'UDS Infrastructure Private Limited - A unit of Ultimate Group. Bringing modern, tech-forward solutions to Civil Construction, BMS, and MEP in West Bengal.',
+    'UDS Infrastructure Private Limited - A unit of Ultimate Group. Bringing modern, tech-forward solutions to Civil Construction, BMS, and MEP across India.',
   keywords: [
     'civil infrastructure',
     'building management systems',
     'BMS',
     'MEP',
     'construction',
-    'West Bengal',
+    'India',
     'Kolkata',
     'Ultimate Group',
     'smart buildings',
