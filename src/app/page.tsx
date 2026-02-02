@@ -1,42 +1,13 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
+import Hero from '@/components/Hero';
 
 /* =============================================================================
    ANIMATION CONFIGURATIONS
-   Using GPU-accelerated transforms for 60fps performance
    ============================================================================= */
-
-const heroTextVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const heroLineVariants = {
-  hidden: {
-    opacity: 0,
-    y: 60,
-    filter: 'blur(10px)',
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: {
-      duration: 1.2,
-      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-    },
-  },
-};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -194,232 +165,17 @@ const servicesData = [
 ];
 
 /* =============================================================================
-   HERO BACKGROUND COMPONENT
-   Blueprint/Architectural style for "Work in Progress" feel
-   ============================================================================= */
-
-function HeroBackground() {
-  return (
-    /*
-     * ==========================================================================
-     * HERO VISUAL - BLUEPRINT / WORK IN PROGRESS STYLE
-     * ==========================================================================
-     *
-     * AI IMAGE GENERATION PROMPT:
-     * "Architectural blueprint with white lines on deep navy background,
-     * showing bridge structural plans, engineering schematic style,
-     * minimal, professional, 8k resolution."
-     *
-     * Image Requirements:
-     * - Aspect Ratio: 16:9 (1920x1080 minimum)
-     * - Format: WebP with JPEG fallback
-     * - Alt text: "Engineering blueprint - UDS Infrastructure"
-     * ==========================================================================
-     */
-    <div className="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800">
-      {/* Blueprint grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
-
-      {/* Subtle architectural lines */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.05]"
-        viewBox="0 0 1920 1080"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        {/* Bridge structure suggestion */}
-        <line x1="200" y1="700" x2="600" y2="400" stroke="white" strokeWidth="2" />
-        <line x1="600" y1="400" x2="1000" y2="400" stroke="white" strokeWidth="2" />
-        <line x1="1000" y1="400" x2="1400" y2="700" stroke="white" strokeWidth="2" />
-        <line x1="200" y1="700" x2="1400" y2="700" stroke="white" strokeWidth="2" />
-
-        {/* Support lines */}
-        <line x1="400" y1="700" x2="500" y2="450" stroke="white" strokeWidth="1" strokeDasharray="8,4" />
-        <line x1="800" y1="700" x2="800" y2="400" stroke="white" strokeWidth="1" strokeDasharray="8,4" />
-        <line x1="1200" y1="700" x2="1100" y2="450" stroke="white" strokeWidth="1" strokeDasharray="8,4" />
-
-        {/* Dimension markers */}
-        <circle cx="200" cy="700" r="6" fill="none" stroke="white" strokeWidth="1" />
-        <circle cx="600" cy="400" r="6" fill="none" stroke="white" strokeWidth="1" />
-        <circle cx="1000" cy="400" r="6" fill="none" stroke="white" strokeWidth="1" />
-        <circle cx="1400" cy="700" r="6" fill="none" stroke="white" strokeWidth="1" />
-      </svg>
-
-      {/* Animated accent elements */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }}
-        transition={{ duration: 2 }}
-        className="absolute top-1/4 right-1/4 w-80 h-80 border border-secondary-500/30 rounded-lg rotate-12"
-      />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute bottom-1/3 left-1/4 w-64 h-64 border border-white/20 rotate-45"
-      />
-
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary-950/40 via-transparent to-primary-950/60" />
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent" />
-    </div>
-  );
-}
-
-/* =============================================================================
    MAIN COMPONENT
    ============================================================================= */
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
-  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
-
   return (
     <>
       {/* =====================================================================
-          HERO SECTION - VISIONARY
-          Selling the vision, not the portfolio
+          HERO SECTION - INTERACTIVE
+          Mouse-tracking spotlight with blueprint grid
           ===================================================================== */}
-      <section
-        ref={heroRef}
-        className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
-      >
-        {/* Background with parallax */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            opacity: heroOpacity,
-            scale: heroScale,
-            y: heroY,
-          }}
-        >
-          <HeroBackground />
-        </motion.div>
-
-        {/* Vignette */}
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.4)]" />
-
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            variants={heroTextVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-6 sm:space-y-8"
-          >
-            {/* Pre-headline badge */}
-            <motion.div
-              variants={heroLineVariants}
-              className="flex justify-center"
-            >
-              <span className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full border border-white/10">
-                <span className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-secondary-500 rounded-full animate-pulse" />
-                  <span className="text-secondary-400 font-semibold text-sm uppercase tracking-wider">
-                    A unit of Ultimate Group
-                  </span>
-                </span>
-                <span className="hidden sm:block w-px h-4 bg-white/20" />
-                <span className="hidden sm:block text-white/60 text-sm">
-                  16+ Years of Trust
-                </span>
-              </span>
-            </motion.div>
-
-            {/* Main Headline */}
-            <motion.h1
-              variants={heroLineVariants}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight"
-            >
-              Engineering the Future
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-400 via-secondary-500 to-secondary-600">
-                of India
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              variants={heroLineVariants}
-              className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-primary-100/90 leading-relaxed font-light"
-            >
-              Backed by 16+ years of Ultimate Group legacy, UDS Infrastructure
-              is the new standard in Civil Engineering & Building Management Systems.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={heroLineVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
-            >
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold text-lg rounded-xl shadow-2xl shadow-secondary-500/25 hover:shadow-secondary-500/40 transition-all duration-500 transform hover:-translate-y-1"
-              >
-                Partner With Us
-                <svg
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                href="/about"
-                className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold text-lg rounded-xl border border-white/20 hover:border-white/40 transition-all duration-500"
-              >
-                Learn About Us
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white/40 text-xs uppercase tracking-[0.25em] font-medium">
-              Discover
-            </span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
-            >
-              <motion.div
-                className="w-1 h-2 bg-white/60 rounded-full"
-                animate={{ opacity: [1, 0.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
+      <Hero />
 
       {/* =====================================================================
           "WHY US" SECTION - BENTO GRID
