@@ -84,9 +84,9 @@ const whyUsCards = [
   },
   {
     id: 'standards',
-    title: 'ISO Certified',
-    subtitle: 'Quality & Safety',
-    description: 'Rigorous adherence to ISO 9001, ISO 14001, and ISO 45001 standards ensuring quality, environmental responsibility, and workplace safety.',
+    title: 'MSME Registered',
+    subtitle: 'Quality & Compliance',
+    description: 'Proudly registered under the MSME Act, ensuring transparent operations, government compliance, and commitment to quality standards.',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -112,73 +112,40 @@ const whyUsCards = [
 ];
 
 /* =============================================================================
-   SERVICES DATA - 6 GRANULAR SERVICE CARDS
-   Each service has an imagePrompt comment for AI image generation
+   SERVICES DATA - 7 GRANULAR SERVICE CARDS
+   Includes the new Electrical Distribution vertical
    ============================================================================= */
 
 const servicesData = [
-  /*
-   * ==========================================================================
-   * 1. CIVIL CONSTRUCTION
-   * ==========================================================================
-   *
-   * >> IMAGE GENERATION PROMPT (Copy for Midjourney/DALL-E):
-   * "Cinematic low-angle shot of a massive concrete foundation pour, vibrant
-   * orange safety vests, steel rebar grid foreground, hyper-realistic
-   * construction photography."
-   *
-   * ==========================================================================
-   */
+  {
+    id: 'electrical',
+    title: 'Electrical & Smart Metering',
+    description: 'High-voltage transmission networks and IoT-enabled smart metering for modern grids.',
+    imagePath: '/images/services/electrical-transmission.png',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    color: 'from-yellow-500 to-amber-600',
+    isNew: true,
+  },
   {
     id: 'civil-construction',
-    title: 'Civil Construction',
-    description: 'High-grade structural concrete and steel framework execution for commercial towers.',
-    imagePath: '/images/services/civil-construction.webp',
+    title: 'Civil Infrastructure',
+    description: 'Heavy civil engineering—bridges, foundations, and road networks built to last.',
+    imagePath: '/images/services/infrastructure-premium.png',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
       </svg>
     ),
-    color: 'from-amber-500 to-orange-600',
-  },
-  /*
-   * ==========================================================================
-   * 2. INFRASTRUCTURE
-   * ==========================================================================
-   *
-   * >> IMAGE GENERATION PROMPT (Copy for Midjourney/DALL-E):
-   * "Aerial drone view of a modern highway bridge network under construction,
-   * golden hour sun, clean engineering lines, photorealistic."
-   *
-   * ==========================================================================
-   */
-  {
-    id: 'infrastructure',
-    title: 'Infrastructure',
-    description: "Arterial road networks, bridges, and public utility grids driving India's connectivity.",
-    imagePath: '/images/services/infrastructure.webp',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-      </svg>
-    ),
     color: 'from-slate-600 to-slate-800',
   },
-  /*
-   * ==========================================================================
-   * 3. BUILDING MANAGEMENT SYSTEMS (BMS)
-   * ==========================================================================
-   *
-   * >> IMAGE GENERATION PROMPT (Copy for Midjourney/DALL-E):
-   * "Macro shot of a digital building twin on a tablet screen held by an
-   * engineer, blurred server room background, blue glowing data streams."
-   *
-   * ==========================================================================
-   */
   {
     id: 'bms',
     title: 'Building Management Systems',
-    description: 'Centralized command centers monitoring HVAC, lighting, and energy efficiency.',
+    description: 'Intelligent BMS integrating HVAC, lighting, and security—reducing costs by 30%.',
     imagePath: '/images/services/bms.webp',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -187,22 +154,11 @@ const servicesData = [
     ),
     color: 'from-cyan-500 to-blue-600',
   },
-  /*
-   * ==========================================================================
-   * 4. FIRE SAFETY & SUPPRESSION
-   * ==========================================================================
-   *
-   * >> IMAGE GENERATION PROMPT (Copy for Midjourney/DALL-E):
-   * "Close-up of industrial red fire suppression pipes and polished valves,
-   * highly detailed engineering texture, clean bokeh background."
-   *
-   * ==========================================================================
-   */
   {
     id: 'fire-safety',
-    title: 'Fire Safety & Suppression',
-    description: 'Intelligent fire detection and automated suppression manifolds (hydrants & sprinklers).',
-    imagePath: '/images/services/fire-safety.webp',
+    title: 'Fire Protection Engineering',
+    description: 'NBC-compliant fire grids with hydraulic suppression for high-rise and industrial zones.',
+    imagePath: '/images/services/fire-safety-premium.png',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
@@ -211,22 +167,11 @@ const servicesData = [
     ),
     color: 'from-red-500 to-red-700',
   },
-  /*
-   * ==========================================================================
-   * 5. CCTV & SURVEILLANCE
-   * ==========================================================================
-   *
-   * >> IMAGE GENERATION PROMPT (Copy for Midjourney/DALL-E):
-   * "Sleek bullet camera lens reflection showing a distorted wide-angle view
-   * of a modern office lobby, high-tech security concept, glass facade."
-   *
-   * ==========================================================================
-   */
   {
     id: 'cctv',
-    title: 'CCTV & Surveillance',
-    description: 'IP-based high-definition monitoring with AI-driven analytics for perimeter security.',
-    imagePath: '/images/services/cctv.webp',
+    title: 'CCTV & Intelligent Surveillance',
+    description: 'AI-driven IP surveillance with thermal imaging and real-time intrusion detection.',
+    imagePath: '/images/services/cctv-premium.png',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -234,22 +179,11 @@ const servicesData = [
     ),
     color: 'from-violet-500 to-purple-700',
   },
-  /*
-   * ==========================================================================
-   * 6. ACCESS CONTROL
-   * ==========================================================================
-   *
-   * >> IMAGE GENERATION PROMPT (Copy for Midjourney/DALL-E):
-   * "Close up of a hand interacting with a glowing biometric retina scanner,
-   * glass and brushed steel materials, cyber-security aesthetic."
-   *
-   * ==========================================================================
-   */
   {
     id: 'access-control',
-    title: 'Access Control',
-    description: 'Biometric integration and RFID secure entry points for restricted zones.',
-    imagePath: '/images/services/access-control.webp',
+    title: 'Access Control Systems',
+    description: 'Biometric and RFID secure entry with visitor management and BMS integration.',
+    imagePath: '/images/services/access-control-premium.png',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />

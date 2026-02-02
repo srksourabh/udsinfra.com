@@ -67,9 +67,9 @@ const socialLinks = [
 ];
 
 const certifications = [
-  'ISO 9001:2015',
-  'ISO 14001:2015',
-  'ISO 45001:2018',
+  'MSME Registered',
+  'Govt. Certified',
+  'Quality Assured',
 ];
 
 export default function Footer() {
