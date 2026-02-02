@@ -479,7 +479,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Contact Info Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {/* Address */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -498,6 +498,24 @@ export default function ContactPage() {
                 EC73, Rajdanga Main Road<br />
                 Kolkata 700107, India
               </p>
+            </motion.div>
+
+            {/* Phone */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
+              className="bg-white p-6 rounded-xl shadow-md border border-neutral-200"
+            >
+              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-primary-800 mb-2">Call Us</h3>
+              <a href="tel:+913340007520" className="text-emerald-600 hover:text-emerald-700 text-sm font-medium">
+                033 4000 7520
+              </a>
             </motion.div>
 
             {/* Email */}
@@ -522,7 +540,7 @@ export default function ContactPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.45 }}
               className="bg-white p-6 rounded-xl shadow-md border border-neutral-200"
             >
               <div className="w-12 h-12 bg-primary-800 rounded-lg flex items-center justify-center mb-4">
