@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const footerLinks = {
@@ -82,12 +83,13 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group mb-6">
-              <div className="relative">
-                <div className="w-14 h-14 bg-gradient-to-br from-primary-700 to-primary-500 rounded-lg flex items-center justify-center">
-                  <span className="font-display font-bold text-white text-2xl">U</span>
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary-500 rounded-sm"></div>
-              </div>
+              <Image
+                src="/logo.png"
+                alt="UDS Infrastructure"
+                width={56}
+                height={56}
+                className="h-14 w-auto brightness-0 invert"
+              />
               <div>
                 <h2 className="font-display font-bold text-xl text-white leading-tight">
                   UDS INFRASTRUCTURE
@@ -98,10 +100,13 @@ export default function Footer() {
               </div>
             </Link>
 
+            <p className="text-secondary-400 font-semibold text-sm mb-3 uppercase tracking-wider">
+              A unit of Ultimate Group
+            </p>
             <p className="text-neutral-300 mb-6 leading-relaxed max-w-md">
-              A part of the Ultimate Group, UDS Infrastructure delivers world-class
-              civil infrastructure, building management systems, and MEP solutions
-              across India. Engineering excellence since establishment.
+              Backed by 16+ years of Ultimate Group stability, UDS Infrastructure
+              brings fresh energy to civil infrastructure, building management
+              systems, and MEP solutions across India.
             </p>
 
             {/* Contact Info */}
@@ -236,8 +241,8 @@ export default function Footer() {
             {/* Copyright */}
             <div className="text-neutral-400 text-sm text-center md:text-left">
               <p>
-                &copy; {currentYear} UDS Infrastructure Private Limited (Ultimate Group).
-                All rights reserved.
+                &copy; {currentYear} UDS Infrastructure Private Limited.
+                A unit of Ultimate Group. All rights reserved.
               </p>
             </div>
 

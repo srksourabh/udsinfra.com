@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -38,18 +39,20 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-800 to-primary-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                <span className="font-display font-bold text-white text-xl">U</span>
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary-500 rounded-sm"></div>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="UDS Infrastructure"
+              width={48}
+              height={48}
+              className="h-10 sm:h-12 w-auto"
+              priority
+            />
             <div className="hidden sm:block">
               <h1 className="font-display font-bold text-xl text-primary-800 leading-tight">
                 UDS INFRASTRUCTURE
               </h1>
-              <p className="text-xs text-neutral-600 tracking-wider uppercase">
-                Building Tomorrow
+              <p className="text-xs text-secondary-500 tracking-wider uppercase font-semibold">
+                A unit of Ultimate Group
               </p>
             </div>
           </Link>

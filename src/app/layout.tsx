@@ -1,38 +1,33 @@
 import type { Metadata } from 'next';
-import { Inter, Oswald } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import { Navbar, Footer } from '@/components/layout';
 import './globals.css';
 
-const inter = Inter({
-  variable: '--font-inter',
+const jakarta = Plus_Jakarta_Sans({
+  variable: '--font-jakarta',
   subsets: ['latin'],
   display: 'swap',
-});
-
-const oswald = Oswald({
-  variable: '--font-oswald',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'UDS Infrastructure Pvt. Ltd. | Civil Infrastructure & BMS Solutions',
+    default: 'UDS Infrastructure Pvt. Ltd. | Modern Infrastructure Solutions',
     template: '%s | UDS Infrastructure',
   },
   description:
-    'UDS Infrastructure Private Limited (Ultimate Group) - Leading provider of civil infrastructure, Building Management Systems (BMS), and MEP solutions in India. Engineering excellence delivered.',
+    'UDS Infrastructure Private Limited - A unit of Ultimate Group. Bringing modern, tech-forward solutions to Civil Construction, BMS, and MEP in West Bengal.',
   keywords: [
     'civil infrastructure',
     'building management systems',
     'BMS',
     'MEP',
     'construction',
+    'West Bengal',
     'Kolkata',
-    'India',
     'Ultimate Group',
-    'infrastructure development',
+    'smart buildings',
+    'modern construction',
   ],
   authors: [{ name: 'UDS Infrastructure' }],
   creator: 'UDS Infrastructure Pvt. Ltd.',
@@ -48,22 +43,22 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: 'https://udsinfra.com',
     siteName: 'UDS Infrastructure',
-    title: 'UDS Infrastructure Pvt. Ltd. | Civil Infrastructure & BMS Solutions',
+    title: 'UDS Infrastructure Pvt. Ltd. | Modern Infrastructure Solutions',
     description:
-      'Leading provider of civil infrastructure, Building Management Systems (BMS), and MEP solutions in India.',
+      'A unit of Ultimate Group. Modern, tech-forward Civil Construction, BMS, and MEP solutions.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'UDS Infrastructure',
+        alt: 'UDS Infrastructure - A unit of Ultimate Group',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'UDS Infrastructure Pvt. Ltd.',
-    description: 'Civil Infrastructure & BMS Solutions',
+    description: 'Modern Infrastructure Solutions - A unit of Ultimate Group',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -86,9 +81,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${oswald.variable} font-sans antialiased`}
-      >
+      <body className={`${jakarta.variable} font-sans antialiased`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

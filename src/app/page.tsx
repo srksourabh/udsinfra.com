@@ -43,12 +43,12 @@ const heroLineVariants = {
 
 const metrics = [
   {
-    value: '15+',
-    label: 'Years of Excellence',
-    description: 'Delivering infrastructure since 2009',
+    value: '16+',
+    label: 'Years Group Heritage',
+    description: 'Backed by Ultimate Group stability',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
   },
@@ -351,12 +351,12 @@ export default function Home() {
                 <span className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-secondary-500 rounded-full animate-pulse" />
                   <span className="text-secondary-400 font-semibold text-sm uppercase tracking-wider">
-                    Ultimate Group Company
+                    A unit of Ultimate Group
                   </span>
                 </span>
                 <span className="w-px h-4 bg-white/20" />
                 <span className="text-white/70 text-sm">
-                  Est. 2009
+                  16+ Years Group Heritage
                 </span>
               </span>
             </motion.div>
@@ -479,13 +479,13 @@ export default function Home() {
               About Us
             </span>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-800 mb-6">
-              The Ultimate Group
-              <span className="text-secondary-500"> Legacy</span>
+              New Energy,
+              <span className="text-secondary-500"> Proven Foundation</span>
             </h2>
             <p className="max-w-3xl mx-auto text-lg text-neutral-600 leading-relaxed">
-              For over 15 years, UDS Infrastructure has been at the forefront of
-              India&apos;s infrastructure revolution, delivering projects that stand as
-              testaments to engineering excellence and unwavering commitment to quality.
+              UDS Infrastructure is a fresh venture backed by Ultimate Group&apos;s 16+ years
+              of proven excellence. We combine startup agility with enterprise-grade
+              engineering capabilities to deliver infrastructure projects across India.
             </p>
           </motion.div>
 
@@ -552,7 +552,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Heritage Card - Spans 2 columns */}
+            {/* Group Foundation Card - Spans 2 columns */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -566,19 +566,19 @@ export default function Home() {
 
               <div className="relative">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-primary-800 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-secondary-500 rounded-lg flex items-center justify-center">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="font-display text-xl font-bold text-primary-800 uppercase tracking-wider">Our Heritage</h3>
+                  <h3 className="font-display text-xl font-bold text-primary-800 uppercase tracking-wider">Built on Trust</h3>
                 </div>
 
                 <p className="text-neutral-600 leading-relaxed mb-6">
-                  As a proud member of the Ultimate Group, UDS Infrastructure carries forward
-                  a legacy of trust, innovation, and excellence. From our headquarters in
-                  Kolkata, we have expanded our footprint across Eastern India, delivering
-                  projects that combine engineering precision with sustainable practices.
+                  As a unit of the Ultimate Group, UDS Infrastructure combines fresh entrepreneurial
+                  energy with 16+ years of established trust. Operating from Kolkata, we bring
+                  modern, tech-forward approaches to civil infrastructure, BMS, and MEP—backed
+                  by enterprise-grade processes and certifications.
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -620,9 +620,9 @@ export default function Home() {
               <span className="text-secondary-500"> Expertise</span>
             </h2>
             <p className="text-neutral-600 max-w-3xl mx-auto text-lg leading-relaxed">
-              Over 15 years of specialized engineering across Civil Infrastructure,
-              Building Automation, and MEP Systems—each discipline mastered to
-              deliver integrated solutions for complex projects.
+              Specialized engineering across Civil Infrastructure, Building Automation,
+              and MEP Systems—each discipline delivered with precision and backed
+              by Ultimate Group&apos;s proven methodology for complex projects.
             </p>
           </motion.div>
 
