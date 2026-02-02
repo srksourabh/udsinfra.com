@@ -415,7 +415,7 @@ export default function Home() {
               Engineering the Future
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-400 via-secondary-500 to-secondary-600">
-                of Bengal
+                of India
               </span>
             </motion.h1>
 
