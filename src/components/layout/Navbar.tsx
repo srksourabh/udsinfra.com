@@ -18,7 +18,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -27,26 +27,33 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'glass py-3'
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg py-3 border-b border-neutral-200'
+          : 'bg-white/10 backdrop-blur-md py-5 border-b border-white/20'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/logo.png"
-              alt="UDS Infrastructure"
-              width={48}
-              height={48}
-              className="h-10 sm:h-12 w-auto"
-              priority
-            />
+            {/* Logo container with white background for visibility */}
+            <div className={`relative rounded-lg overflow-hidden transition-all duration-300 ${
+              isScrolled ? '' : 'bg-white/90 p-1'
+            }`}>
+              <Image
+                src="/logo.png"
+                alt="UDS Infrastructure"
+                width={48}
+                height={48}
+                className="h-10 sm:h-12 w-auto"
+                priority
+              />
+            </div>
             <div className="hidden sm:block">
-              <h1 className="font-display font-bold text-xl text-primary-800 leading-tight">
+              <h1 className={`font-display font-bold text-xl leading-tight transition-colors duration-300 ${
+                isScrolled ? 'text-primary-800' : 'text-white'
+              }`}>
                 UDS INFRASTRUCTURE
               </h1>
               <a
@@ -54,7 +61,11 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="text-xs text-secondary-500 hover:text-secondary-600 tracking-wider uppercase font-semibold transition-colors"
+                className={`text-xs tracking-wider uppercase font-semibold transition-colors ${
+                  isScrolled
+                    ? 'text-secondary-500 hover:text-secondary-600'
+                    : 'text-orange-400 hover:text-orange-300'
+                }`}
               >
                 A unit of Ultimate Group
               </a>
@@ -67,10 +78,16 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium text-neutral-700 hover:text-primary-800 transition-colors group"
+                className={`relative px-4 py-2 text-sm font-medium transition-colors group ${
+                  isScrolled
+                    ? 'text-neutral-700 hover:text-primary-800'
+                    : 'text-white/90 hover:text-white'
+                }`}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-secondary-500 group-hover:w-3/4 transition-all duration-300"></span>
+                <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-3/4 transition-all duration-300 ${
+                  isScrolled ? 'bg-secondary-500' : 'bg-cyan-400'
+                }`}></span>
               </Link>
             ))}
           </div>
@@ -79,7 +96,11 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold text-sm rounded-lg shadow-lg hover:shadow-xl hover:from-secondary-600 hover:to-secondary-700 transition-all duration-300 transform hover:-translate-y-0.5"
+              className={`inline-flex items-center gap-2 px-6 py-2.5 font-semibold text-sm rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 ${
+                isScrolled
+                  ? 'bg-gradient-to-r from-secondary-500 to-secondary-600 text-white hover:shadow-xl hover:from-secondary-600 hover:to-secondary-700'
+                  : 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-orange-500/30 hover:from-orange-600 hover:to-orange-700'
+              }`}
             >
               Get a Quote
               <svg
@@ -101,11 +122,15 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-neutral-100 transition-colors"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? 'hover:bg-neutral-100 text-primary-800'
+                : 'hover:bg-white/10 text-white'
+            }`}
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6 text-primary-800"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -138,7 +163,11 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden glass-strong mt-2 mx-4 rounded-xl overflow-hidden"
+            className={`lg:hidden mt-2 mx-4 rounded-xl overflow-hidden ${
+              isScrolled
+                ? 'bg-white/95 backdrop-blur-lg shadow-xl border border-neutral-200'
+                : 'bg-slate-900/95 backdrop-blur-lg border border-white/20'
+            }`}
           >
             <div className="py-4 px-6 space-y-1">
               {navLinks.map((link, index) => (
@@ -151,7 +180,11 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 px-4 text-neutral-700 hover:text-primary-800 hover:bg-primary-50 rounded-lg transition-colors font-medium"
+                    className={`block py-3 px-4 rounded-lg transition-colors font-medium ${
+                      isScrolled
+                        ? 'text-neutral-700 hover:text-primary-800 hover:bg-primary-50'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -161,12 +194,12 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
-                className="pt-4 border-t border-neutral-200"
+                className={`pt-4 border-t ${isScrolled ? 'border-neutral-200' : 'border-white/20'}`}
               >
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full py-3 px-4 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold text-center rounded-lg shadow-lg"
+                  className="block w-full py-3 px-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold text-center rounded-lg shadow-lg"
                 >
                   Get a Quote
                 </Link>

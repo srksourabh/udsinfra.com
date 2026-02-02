@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 /* =============================================================================
-   INTERACTIVE HERO SECTION
-   Blueprint grid with mouse-tracking spotlight effect
+   INTERACTIVE BLUEPRINT HERO
+   Technical Blue aesthetic with mouse-tracking spotlight
    ============================================================================= */
 
 const heroTextVariants = {
@@ -37,7 +37,7 @@ const heroLineVariants = {
   },
 };
 
-// Pre-generate particle positions to avoid Math.random in render
+// Pre-generate particle positions
 const PARTICLE_POSITIONS = [
   { x: 15, y: 20, scale: 0.7, duration: 12, delay: 0 },
   { x: 85, y: 10, scale: 0.5, duration: 15, delay: 1 },
@@ -49,45 +49,48 @@ const PARTICLE_POSITIONS = [
   { x: 60, y: 15, scale: 0.65, duration: 12, delay: 2.5 },
   { x: 25, y: 55, scale: 0.85, duration: 14, delay: 0.8 },
   { x: 80, y: 85, scale: 0.5, duration: 11, delay: 3.5 },
-  { x: 50, y: 90, scale: 0.7, duration: 15, delay: 1.2 },
-  { x: 5, y: 40, scale: 0.6, duration: 13, delay: 4.5 },
-  { x: 95, y: 25, scale: 0.8, duration: 10, delay: 2.2 },
-  { x: 35, y: 5, scale: 0.55, duration: 16, delay: 0.3 },
-  { x: 75, y: 75, scale: 0.9, duration: 12, delay: 3.8 },
 ];
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Mouse position with spring physics for smooth movement
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  // Mouse position with spring physics
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
 
-  const springConfig = { damping: 25, stiffness: 150 };
+  const springConfig = { damping: 20, stiffness: 100 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  // Transform mouse position to spotlight gradient
+  // Transform for spotlight (Orange glow)
   const spotlightBackground = useTransform(
     [smoothX, smoothY],
-    ([x, y]) =>
-      `radial-gradient(600px circle at ${x}px ${y}px, rgba(249, 115, 22, 0.15), transparent 40%)`
+    ([x, y]) => {
+      const xPercent = (x as number) * 100;
+      const yPercent = (y as number) * 100;
+      return `radial-gradient(800px circle at ${xPercent}% ${yPercent}%, rgba(249, 115, 22, 0.2), transparent 50%)`;
+    }
   );
 
-  // Grid glow effect
-  const gridGlow = useTransform(
+  // Transform for grid reveal (Cyan glow)
+  const gridReveal = useTransform(
     [smoothX, smoothY],
-    ([x, y]) =>
-      `radial-gradient(400px circle at ${x}px ${y}px, rgba(6, 182, 212, 0.08), transparent 50%)`
+    ([x, y]) => {
+      const xPercent = (x as number) * 100;
+      const yPercent = (y as number) * 100;
+      return `radial-gradient(600px circle at ${xPercent}% ${yPercent}%, rgba(6, 182, 212, 0.15), transparent 60%)`;
+    }
   );
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
-      mouseX.set(e.clientX - rect.left);
-      mouseY.set(e.clientY - rect.top);
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      mouseX.set(x);
+      mouseY.set(y);
     };
 
     const container = containerRef.current;
@@ -102,82 +105,103 @@ export default function Hero() {
       ref={containerRef}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-primary-950"
+      className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
-      {/* ===== NAVBAR VISIBILITY GRADIENT (TOP) ===== */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/80 via-black/50 to-transparent z-20 pointer-events-none" />
+      {/* ===== TECHNICAL BLUE BASE GRADIENT ===== */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900" />
 
-      {/* ===== BASE BACKGROUND ===== */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-950 via-[#0a1628] to-primary-900" />
+      {/* ===== SECONDARY BLUE DEPTH LAYER ===== */}
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/50 via-transparent to-slate-800/30" />
 
-      {/* ===== ANIMATED GRID PATTERN ===== */}
+      {/* ===== BLUEPRINT GRID PATTERN ===== */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px)
+            linear-gradient(rgba(6, 182, 212, 1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(6, 182, 212, 1) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px',
+          backgroundSize: '60px 60px',
         }}
       />
 
-      {/* ===== CIRCUIT LINES SVG ===== */}
+      {/* ===== FINER GRID OVERLAY ===== */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)
+          `,
+          backgroundSize: '15px 15px',
+        }}
+      />
+
+      {/* ===== ENGINEERING SCHEMATIC SVG ===== */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-[0.06]"
+        className="absolute inset-0 w-full h-full opacity-[0.12]"
         viewBox="0 0 1920 1080"
         preserveAspectRatio="xMidYMid slice"
       >
-        {/* Horizontal data lines */}
-        <line x1="0" y1="200" x2="400" y2="200" stroke="cyan" strokeWidth="1" />
-        <line x1="500" y1="200" x2="800" y2="200" stroke="cyan" strokeWidth="1" strokeDasharray="10,5" />
-        <line x1="1200" y1="300" x2="1920" y2="300" stroke="cyan" strokeWidth="1" />
+        {/* Horizontal circuit lines */}
+        <line x1="0" y1="180" x2="450" y2="180" stroke="#06b6d4" strokeWidth="1.5" />
+        <line x1="550" y1="180" x2="900" y2="180" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="12,6" />
+        <line x1="1100" y1="280" x2="1920" y2="280" stroke="#06b6d4" strokeWidth="1.5" />
+        <line x1="0" y1="750" x2="600" y2="750" stroke="#06b6d4" strokeWidth="1" strokeDasharray="8,4" />
+        <line x1="1400" y1="850" x2="1920" y2="850" stroke="#06b6d4" strokeWidth="1" />
 
-        {/* Vertical data lines */}
-        <line x1="300" y1="0" x2="300" y2="400" stroke="cyan" strokeWidth="1" strokeDasharray="5,10" />
-        <line x1="1600" y1="200" x2="1600" y2="800" stroke="cyan" strokeWidth="1" />
+        {/* Vertical circuit lines */}
+        <line x1="280" y1="0" x2="280" y2="450" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="6,12" />
+        <line x1="1640" y1="180" x2="1640" y2="900" stroke="#06b6d4" strokeWidth="1.5" />
+        <line x1="450" y1="600" x2="450" y2="1080" stroke="#06b6d4" strokeWidth="1" />
 
-        {/* Engineering structure - bridge silhouette */}
+        {/* Engineering structure - Bridge outline */}
         <path
-          d="M100,800 L300,500 L600,450 L900,420 L1200,450 L1500,500 L1700,800"
+          d="M80,880 L250,580 L550,520 L900,480 L1250,520 L1550,580 L1720,880"
           fill="none"
-          stroke="white"
-          strokeWidth="1.5"
-          strokeDasharray="15,8"
+          stroke="#ffffff"
+          strokeWidth="2"
+          strokeDasharray="20,10"
         />
-        <line x1="300" y1="500" x2="300" y2="800" stroke="white" strokeWidth="1" />
-        <line x1="600" y1="450" x2="600" y2="800" stroke="white" strokeWidth="1" />
-        <line x1="900" y1="420" x2="900" y2="800" stroke="white" strokeWidth="1" />
-        <line x1="1200" y1="450" x2="1200" y2="800" stroke="white" strokeWidth="1" />
-        <line x1="1500" y1="500" x2="1500" y2="800" stroke="white" strokeWidth="1" />
+        {/* Bridge pillars */}
+        <line x1="250" y1="580" x2="250" y2="880" stroke="#ffffff" strokeWidth="1.5" />
+        <line x1="550" y1="520" x2="550" y2="880" stroke="#ffffff" strokeWidth="1.5" />
+        <line x1="900" y1="480" x2="900" y2="880" stroke="#ffffff" strokeWidth="1.5" />
+        <line x1="1250" y1="520" x2="1250" y2="880" stroke="#ffffff" strokeWidth="1.5" />
+        <line x1="1550" y1="580" x2="1550" y2="880" stroke="#ffffff" strokeWidth="1.5" />
 
         {/* Circuit nodes */}
-        <circle cx="300" cy="200" r="4" fill="cyan" />
-        <circle cx="800" cy="200" r="4" fill="cyan" />
-        <circle cx="1600" cy="300" r="4" fill="cyan" />
-        <circle cx="300" cy="500" r="5" fill="none" stroke="white" strokeWidth="1.5" />
-        <circle cx="900" cy="420" r="5" fill="none" stroke="white" strokeWidth="1.5" />
-        <circle cx="1500" cy="500" r="5" fill="none" stroke="white" strokeWidth="1.5" />
+        <circle cx="280" cy="180" r="6" fill="#06b6d4" />
+        <circle cx="900" cy="180" r="6" fill="#06b6d4" />
+        <circle cx="1640" cy="280" r="6" fill="#06b6d4" />
+        <circle cx="450" cy="750" r="5" fill="none" stroke="#06b6d4" strokeWidth="2" />
+        <circle cx="1400" cy="850" r="5" fill="none" stroke="#06b6d4" strokeWidth="2" />
 
-        {/* Measurement annotations */}
-        <text x="580" y="410" fill="rgba(255,255,255,0.3)" fontSize="12" fontFamily="monospace">A-01</text>
-        <text x="1180" y="440" fill="rgba(255,255,255,0.3)" fontSize="12" fontFamily="monospace">B-02</text>
+        {/* Structure nodes */}
+        <circle cx="250" cy="580" r="8" fill="none" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="900" cy="480" r="10" fill="none" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="1550" cy="580" r="8" fill="none" stroke="#ffffff" strokeWidth="2" />
+
+        {/* Blueprint annotations */}
+        <text x="520" y="460" fill="rgba(255,255,255,0.4)" fontSize="14" fontFamily="monospace">SEC-A1</text>
+        <text x="1220" y="500" fill="rgba(255,255,255,0.4)" fontSize="14" fontFamily="monospace">SEC-B2</text>
+        <text x="870" y="440" fill="rgba(6,182,212,0.5)" fontSize="12" fontFamily="monospace">REF:001</text>
       </svg>
 
-      {/* ===== MOUSE SPOTLIGHT EFFECT ===== */}
+      {/* ===== MOUSE SPOTLIGHT (ORANGE) ===== */}
       <motion.div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-700"
         style={{
           background: spotlightBackground,
           opacity: isHovering ? 1 : 0,
         }}
       />
 
-      {/* ===== GRID GLOW EFFECT ===== */}
+      {/* ===== GRID REVEAL GLOW (CYAN) ===== */}
       <motion.div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-700"
         style={{
-          background: gridGlow,
+          background: gridReveal,
           opacity: isHovering ? 1 : 0,
         }}
       />
@@ -187,7 +211,7 @@ export default function Hero() {
         {PARTICLE_POSITIONS.map((particle, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-500/30 rounded-full"
+            className="absolute w-1.5 h-1.5 bg-cyan-400/40 rounded-full"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -197,8 +221,8 @@ export default function Hero() {
               opacity: 0,
             }}
             animate={{
-              y: [0, -100],
-              opacity: [0, 1, 0],
+              y: [0, -120],
+              opacity: [0, 0.8, 0],
             }}
             transition={{
               duration: particle.duration,
@@ -210,31 +234,37 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* ===== DECORATIVE ELEMENTS ===== */}
+      {/* ===== DECORATIVE GEOMETRIC ELEMENTS ===== */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.15, scale: 1 }}
+        transition={{ duration: 2 }}
+        className="absolute top-1/4 right-[12%] w-80 h-80 border-2 border-cyan-500/30 rounded-full"
+      />
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 2 }}
-        className="absolute top-1/4 right-[15%] w-72 h-72 border border-cyan-500/20 rounded-full"
+        transition={{ duration: 2, delay: 0.3 }}
+        className="absolute bottom-1/4 left-[8%] w-96 h-96 border-2 border-orange-500/20 rotate-45"
       />
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.08, scale: 1 }}
-        transition={{ duration: 2, delay: 0.3 }}
-        className="absolute bottom-1/4 left-[10%] w-96 h-96 border border-secondary-500/20 rotate-45"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.08 }}
+        transition={{ duration: 2, delay: 0.6 }}
+        className="absolute top-[15%] left-[20%] w-48 h-48 border border-white/20 rotate-12"
       />
 
-      {/* ===== CORNER ACCENTS ===== */}
-      <div className="absolute top-20 left-8 w-20 h-20 border-l-2 border-t-2 border-cyan-500/20" />
-      <div className="absolute top-20 right-8 w-20 h-20 border-r-2 border-t-2 border-cyan-500/20" />
-      <div className="absolute bottom-20 left-8 w-20 h-20 border-l-2 border-b-2 border-cyan-500/20" />
-      <div className="absolute bottom-20 right-8 w-20 h-20 border-r-2 border-b-2 border-cyan-500/20" />
+      {/* ===== CORNER BRACKETS ===== */}
+      <div className="absolute top-24 left-8 w-24 h-24 border-l-2 border-t-2 border-cyan-500/30" />
+      <div className="absolute top-24 right-8 w-24 h-24 border-r-2 border-t-2 border-cyan-500/30" />
+      <div className="absolute bottom-24 left-8 w-24 h-24 border-l-2 border-b-2 border-cyan-500/30" />
+      <div className="absolute bottom-24 right-8 w-24 h-24 border-r-2 border-b-2 border-cyan-500/30" />
 
-      {/* ===== VIGNETTE ===== */}
-      <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.6)]" />
+      {/* ===== SUBTLE VIGNETTE ===== */}
+      <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.4)]" />
 
       {/* ===== BOTTOM FADE TO WHITE ===== */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/80 to-transparent" />
 
       {/* ===== HERO CONTENT ===== */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -246,18 +276,18 @@ export default function Hero() {
         >
           {/* Pre-headline badge */}
           <motion.div variants={heroLineVariants} className="flex justify-center">
-            <span className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10">
+            <span className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
               <span className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary-500"></span>
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
                 </span>
-                <span className="text-secondary-400 font-semibold text-sm uppercase tracking-wider">
+                <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">
                   A unit of Ultimate Group
                 </span>
               </span>
-              <span className="hidden sm:block w-px h-4 bg-white/20" />
-              <span className="hidden sm:block text-white/60 text-sm">
+              <span className="hidden sm:block w-px h-5 bg-white/30" />
+              <span className="hidden sm:block text-white/80 text-sm font-medium">
                 16+ Years of Trust
               </span>
             </span>
@@ -270,7 +300,7 @@ export default function Hero() {
           >
             Engineering the Future
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-400 via-secondary-500 to-secondary-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500">
               of India
             </span>
           </motion.h1>
@@ -278,13 +308,13 @@ export default function Hero() {
           {/* Subheadline */}
           <motion.p
             variants={heroLineVariants}
-            className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-primary-100/90 leading-relaxed font-light"
+            className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-blue-100/90 leading-relaxed font-light"
           >
-            <span className="text-cyan-400">Precision Civil Construction.</span>
+            <span className="text-cyan-400 font-medium">Precision Civil Construction.</span>
             {' '}
-            <span className="text-white/80">Intelligent BMS.</span>
+            <span className="text-white/90">Intelligent BMS.</span>
             {' '}
-            <span className="text-secondary-400">Advanced Electrical Grids.</span>
+            <span className="text-orange-400 font-medium">Advanced Electrical Grids.</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -292,13 +322,12 @@ export default function Hero() {
             variants={heroLineVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
           >
-            {/* Primary CTA with pulsing glow */}
+            {/* Primary CTA */}
             <Link
               href="/services"
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-secondary-500 hover:bg-secondary-600 text-white font-semibold text-lg rounded-xl transition-all duration-500 transform hover:-translate-y-1"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold text-lg rounded-xl transition-all duration-500 transform hover:-translate-y-1 shadow-xl shadow-orange-500/30"
             >
-              {/* Pulsing glow effect */}
-              <span className="absolute inset-0 rounded-xl bg-secondary-500 animate-pulse opacity-50 blur-lg group-hover:opacity-70 transition-opacity" />
+              <span className="absolute inset-0 rounded-xl bg-orange-500 animate-pulse opacity-40 blur-xl group-hover:opacity-60 transition-opacity" />
               <span className="relative flex items-center gap-3">
                 Explore Capabilities
                 <svg
@@ -314,7 +343,7 @@ export default function Hero() {
 
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white font-semibold text-lg rounded-xl border border-white/20 hover:border-cyan-500/50 transition-all duration-500"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-semibold text-lg rounded-xl border border-white/30 hover:border-cyan-400/50 transition-all duration-500"
             >
               Partner With Us
             </Link>
@@ -330,7 +359,7 @@ export default function Hero() {
         className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 z-10"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-white/40 text-xs uppercase tracking-[0.25em] font-medium">
+          <span className="text-white/50 text-xs uppercase tracking-[0.25em] font-medium">
             Discover
           </span>
           <motion.div
@@ -340,10 +369,10 @@ export default function Hero() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
+            className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2"
           >
             <motion.div
-              className="w-1 h-2 bg-cyan-500/80 rounded-full"
+              className="w-1.5 h-2.5 bg-cyan-400 rounded-full"
               animate={{ opacity: [1, 0.3, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
