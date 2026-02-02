@@ -121,8 +121,8 @@ export default function Footer() {
                 <div>
                   <p className="text-sm text-neutral-400">Registered Office</p>
                   <p className="text-neutral-200 text-sm leading-relaxed">
-                    Kolkata, West Bengal - 711205<br />
-                    India
+                    EC73, Rajdanga Main Road<br />
+                    Kolkata 700107, India
                   </p>
                 </div>
               </div>
