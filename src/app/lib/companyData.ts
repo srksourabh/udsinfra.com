@@ -20,7 +20,7 @@ export const companyProfile = {
       name: "Sourabh Bhaumik",
       role: "Director",
       bio: "A visionary leader driving the strategic expansion of UDS into high-voltage electrical grids and smart city solutions across India.",
-      image: "/images/about/director-1.jpg"
+      image: "/images/about/director-1.png"
     },
     {
       name: "Tamal Chatterjee",
