@@ -83,8 +83,8 @@ const whyUsCards = [
 ];
 
 /* =============================================================================
-   SERVICES DATA - 7 GRANULAR SERVICE CARDS
-   Includes the new Electrical Distribution vertical
+   SERVICES DATA - 14 SERVICE CARDS
+   All service verticals including new additions
    ============================================================================= */
 
 const servicesData = [
@@ -161,6 +161,105 @@ const servicesData = [
       </svg>
     ),
     color: 'from-emerald-500 to-teal-600',
+  },
+  {
+    id: 'mechanical-erection',
+    title: 'Mechanical Erection & T&C',
+    description: 'Heavy mechanical erection, piping networks, and testing & commissioning for industrial plants.',
+    imagePath: '/images/services/mechanical-erection.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
+      </svg>
+    ),
+    color: 'from-orange-600 to-orange-800',
+  },
+  {
+    id: 'mep-hvac',
+    title: 'MEP (HVAC-AMC)',
+    description: 'Annual maintenance contracts for HVAC, chillers, and complete MEP building systems.',
+    imagePath: '/images/services/mep-hvac.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 12c0 1.77-.48 3.43-1.32 4.85M4.82 16.85A7.462 7.462 0 013.5 12m1.32-4.85A7.5 7.5 0 0119.5 12M4.82 7.15a7.462 7.462 0 0114.36 0" />
+      </svg>
+    ),
+    color: 'from-sky-500 to-indigo-600',
+  },
+  {
+    id: 'instrumentation-control',
+    title: 'Instrumentation & Control',
+    description: 'PLC/SCADA systems, field instrumentation, and industrial automation solutions.',
+    imagePath: '/images/services/instrumentation-control.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6l4 2" />
+        <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} fill="none" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v2M12 19v2M3 12h2M19 12h2" />
+      </svg>
+    ),
+    color: 'from-indigo-500 to-violet-700',
+  },
+  {
+    id: 'fleet-management',
+    title: 'Fleet Management & Logistics',
+    description: 'GPS-tracked fleet operations, supply chain logistics, and vehicle maintenance programs.',
+    imagePath: '/images/services/fleet-management.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+      </svg>
+    ),
+    color: 'from-lime-600 to-green-700',
+  },
+  {
+    id: 'equipment-rentals',
+    title: 'Construction Equipment Rentals',
+    description: 'Excavators, cranes, scaffolding, and material handling on flexible rental terms.',
+    imagePath: '/images/services/equipment-rentals.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 21h18M6 21V10l-3 2V21M18 21V10l3 2V21M9 21V6l3-4 3 4v15M9 10h6M9 14h6M9 18h6" />
+      </svg>
+    ),
+    color: 'from-amber-600 to-yellow-800',
+  },
+  {
+    id: 'medical-equipment',
+    title: 'Medical Equipment Services',
+    description: 'Hospital equipment supply, AMC contracts, and biomedical engineering support.',
+    imagePath: '/images/services/medical-equipment.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+      </svg>
+    ),
+    color: 'from-pink-500 to-rose-700',
+  },
+  {
+    id: 'facility-management',
+    title: 'Facility Management',
+    description: 'Integrated facility management—technical maintenance, housekeeping, and security.',
+    imagePath: '/images/services/facility-management.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+      </svg>
+    ),
+    color: 'from-blue-500 to-blue-700',
+  },
+  {
+    id: 'pest-control',
+    title: 'Pest Control Services',
+    description: 'Commercial pest management, anti-termite treatment, and fumigation services.',
+    imagePath: '/images/services/pest-control.jpg',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152-6.135c-.22-2.057-1.907-3.555-3.966-3.555h-6.178c-2.059 0-3.746 1.498-3.966 3.555a23.91 23.91 0 01-1.152 6.135A24.087 24.087 0 0112 12.75zm0-9v.008" />
+      </svg>
+    ),
+    color: 'from-green-600 to-emerald-800',
   },
 ];
 
@@ -243,8 +342,8 @@ export default function Home() {
       </section>
 
       {/* =====================================================================
-          SERVICES SECTION - 6 CARD GRID
-          Granular breakdown of specific technologies
+          SERVICES SECTION - 14 CARD GRID
+          All service verticals
           ===================================================================== */}
       <section className="py-24 lg:py-32 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
