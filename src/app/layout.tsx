@@ -10,24 +10,65 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ['400', '500', '600', '700', '800'],
 });
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'UDS Infrastructure Pvt. Ltd.',
+  url: 'https://udsinfra.com',
+  logo: 'https://udsinfra.com/logo.png',
+  description:
+    'A unit of Ultimate Group. Modern infrastructure solutions across Civil Construction, BMS, MEP, Electrical T&D, Fire Safety, CCTV, and more.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'EC73, Rajdanga Main Road, Kasba',
+    addressLocality: 'Kolkata',
+    addressRegion: 'West Bengal',
+    postalCode: '700107',
+    addressCountry: 'IN',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+91-33-4000-7520',
+    contactType: 'customer service',
+    email: 'info@udsinfra.com',
+    availableLanguage: ['English', 'Hindi', 'Bengali'],
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Ultimate Group',
+    url: 'https://ultimatesolutions.in',
+  },
+};
+
 export const metadata: Metadata = {
   title: {
     default: 'UDS Infrastructure Pvt. Ltd. | Modern Infrastructure Solutions',
     template: '%s | UDS Infrastructure',
   },
   description:
-    'UDS Infrastructure Private Limited - A unit of Ultimate Group. Bringing modern, tech-forward solutions to Civil Construction, BMS, and MEP across India.',
+    'UDS Infrastructure Pvt. Ltd. — A unit of Ultimate Group with 16+ years of heritage. End-to-end infrastructure solutions: Civil Construction, BMS, MEP, Electrical T&D, Fire Safety, CCTV, Access Control, Instrumentation, Fleet Management, and Facility Management across India.',
   keywords: [
     'civil infrastructure',
     'building management systems',
     'BMS',
     'MEP',
-    'construction',
-    'India',
+    'electrical transmission and distribution',
+    'fire protection',
+    'CCTV surveillance',
+    'access control',
+    'mechanical erection',
+    'HVAC maintenance',
+    'instrumentation and control',
+    'fleet management',
+    'construction equipment rentals',
+    'medical equipment services',
+    'facility management',
+    'pest control',
+    'construction India',
     'Kolkata',
     'Ultimate Group',
     'smart buildings',
-    'modern construction',
+    'infrastructure company India',
   ],
   authors: [{ name: 'UDS Infrastructure' }],
   creator: 'UDS Infrastructure Pvt. Ltd.',
@@ -38,6 +79,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://udsinfra.com'),
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -45,7 +90,7 @@ export const metadata: Metadata = {
     siteName: 'UDS Infrastructure',
     title: 'UDS Infrastructure Pvt. Ltd. | Modern Infrastructure Solutions',
     description:
-      'A unit of Ultimate Group. Modern, tech-forward Civil Construction, BMS, and MEP solutions.',
+      'A unit of Ultimate Group. 14 infrastructure service verticals spanning Civil, MEP, Electrical, Security, and Facility Management across India.',
     images: [
       {
         url: '/og-image.jpg',
@@ -82,6 +127,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${jakarta.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
