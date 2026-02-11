@@ -445,14 +445,14 @@ export default function ContactPage() {
               className="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-200 h-[500px] md:h-auto"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.1571234567890!2d88.40134!3d22.51306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDMwJzQ3LjAiTiA4OMKwMjQnMDQuOCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7985724842563!2d88.39894697592664!3d22.524584979551795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027133e8b8c5c1%3A0x7f8f3c9c8f3c9c8f!2sHoly%20Child%20School!5e0!3m2!1sen!2sin!4v1707234567890!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '400px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="UDS Infrastructure Office Location - EC73 Rajdanga Main Road, Kolkata"
+                title="UDS Infrastructure Office Location - Next to Holy Child School, EC73 Rajdanga Main Road, Kolkata"
               />
             </motion.div>
           </div>
