@@ -3,16 +3,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { servicesData } from '@/app/lib/servicesData';
 
 const footerLinks = {
-  services: [
-    { label: 'Civil Infrastructure', href: '/services' },
-    { label: 'Building Management Systems', href: '/services' },
-    { label: 'Electrical T&D', href: '/services' },
-    { label: 'Fire Protection', href: '/services' },
-    { label: 'CCTV & Security', href: '/services' },
-    { label: 'Access Control', href: '/services' },
-  ],
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Services', href: '/services' },
@@ -68,11 +61,21 @@ const certifications = [
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Generate dynamic services array from servicesData
+  const dynamicServices = servicesData.map(service => ({
+    label: service.title,
+    href: `/services/${service.slug}`
+  }));
+
+  // Split services into two columns for better layout
+  const servicesCol1 = dynamicServices.slice(0, 7);
+  const servicesCol2 = dynamicServices.slice(7, 14);
+
   return (
     <footer className="bg-primary-950 text-white">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group mb-6">
@@ -155,14 +158,34 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services Links */}
+          {/* Services Links - Column 1 */}
           <div>
             <h3 className="font-display font-semibold text-lg text-white mb-6 uppercase tracking-wider">
               Services
             </h3>
             <ul className="space-y-3">
-              {footerLinks.services.map((link, index) => (
+              {servicesCol1.map((link, index) => (
                 <li key={`service-${index}`}>
+                  <Link
+                    href={link.href}
+                    className="text-neutral-400 hover:text-secondary-500 transition-colors text-sm inline-flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 bg-primary-700 rounded-full group-hover:bg-secondary-500 transition-colors"></span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services Links - Column 2 */}
+          <div>
+            <h3 className="font-display font-semibold text-lg text-white mb-6 uppercase tracking-wider lg:opacity-0 pointer-events-none">
+              Services
+            </h3>
+            <ul className="space-y-3">
+              {servicesCol2.map((link, index) => (
+                <li key={`service-col2-${index}`}>
                   <Link
                     href={link.href}
                     className="text-neutral-400 hover:text-secondary-500 transition-colors text-sm inline-flex items-center gap-2 group"
@@ -275,7 +298,7 @@ export default function Footer() {
               <Link href="/terms" className="text-neutral-400 hover:text-secondary-500 transition-colors">
                 Terms of Use
               </Link>
-              <Link href="/sitemap" className="text-neutral-400 hover:text-secondary-500 transition-colors">
+              <Link href="/site-map" className="text-neutral-400 hover:text-secondary-500 transition-colors">
                 Sitemap
               </Link>
             </div>
